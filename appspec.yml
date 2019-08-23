@@ -1,0 +1,21 @@
+version: 0.0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html
+hooks:
+  ApplicationStop:
+    - location: scripts/StopServer.sh
+      timeout: 60
+      runas: root
+  BeforeInstall:
+    - location: scripts/InstallApp.sh
+      timeout: 60
+      runas: root
+    - location: scripts/InstalDependencies.sh
+      timeout: 60
+      runas: root
+  ApplicationStart:
+    - location: scripts/StartServer.sh
+      timeout: 60
+      runas: root
