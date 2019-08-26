@@ -1,5 +1,6 @@
 #!/bin/bash
-cd /var/www/html
+cd /var/www/html/CI-CD
 apt-get install wget -y
 wget https://getcomposer.org/composer.phar
-php composer.phar install
+composer install --no-plugins --no-scripts
+composer update --no-plugins --no-scripts
